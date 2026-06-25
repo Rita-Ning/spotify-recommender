@@ -6,6 +6,8 @@ A content-based music recommendation system built with Python, scikit-learn, and
 
 ## 🎬 Live Demo
 
+🌐 **[Try it Live!](https://spotify-recommender-rita.streamlit.app/)**
+
 ![Demo](docs/demo_record.gif)
 
 ---
@@ -133,6 +135,7 @@ spotify-recommender/
 ├── requirements.txt    # Python dependencies
 ├── .env                # API Key (not uploaded to GitHub)
 ├── .gitignore          # Git ignore rules
+├── docs/               # Screenshots and GIFs
 └── README.md           # This file
 ```
 
@@ -148,14 +151,17 @@ spotify-recommender/
 
 ## 💡 Future Improvements
 
-- [ ] Integrate Spotify API to support any song query
-- [ ] Add user preference history
-- [ ] Deploy to Streamlit Cloud
-- [ ] Add genre filtering option
+- Integrate Spotify API to support any song query
+- Add user preference history
+- Add genre filtering option
 
 ---
 
 ## 👨‍💻 Author
+
+
+**Rita Ning**
+[GitHub](https://github.com/Rita-Ning)
 
 Built as a learning project to understand:
 

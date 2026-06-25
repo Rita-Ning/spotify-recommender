@@ -142,7 +142,7 @@ if st.button("🔍 搜尋推薦"):
             )
         
         if results is None:
-            st.error(f"找不到歌曲：{track_name}，請確認名稱是否正確！")
+            st.error(f"找不到 {artist_name} - {track_name}，請確認歌曲名稱或藝術家名稱是否正確！")
         else:
             st.success(f"✅ 找到歌曲：{input_song['track_name']} - {input_song['artists']}")
             st.subheader("🎵 推薦歌曲：")
