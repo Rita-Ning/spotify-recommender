@@ -12,7 +12,7 @@ load_dotenv()
 # ========================================
 # 設定 OpenAI API Key
 # ========================================
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get("OPENAI_API_KEY")
 
 # ========================================
 # 載入資料（只載入一次，用 cache 加速）
