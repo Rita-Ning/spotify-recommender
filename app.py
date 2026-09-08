@@ -6,7 +6,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 import openai
 import os
 from dotenv import load_dotenv
-import os
 load_dotenv()
 
 # ========================================
@@ -61,7 +60,7 @@ def get_recommendations(track_name, artist, df, X_scaled, n=10):
     recommendations = df.loc[sim_indices, ['track_name', 'artists', 'track_genre']].copy()
     recommendations['similarity'] = sim_scores[sim_indices].round(3)
 
-    # 去除重複歌曲！保留第一次出現的
+    # 去除重複歌曲，保留第一次出現的
     recommendations = recommendations.drop_duplicates(subset=['track_name', 'artists'])
 
     # 只保留需要的數量
@@ -104,14 +103,16 @@ def explain_recommendation(input_song, input_artist, rec_song, rec_artist, df, f
     請用2-3句話解釋為什麼推薦這首歌，用輕鬆友善的語氣！
     """
     
-    client = openai.OpenAI()
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=150
-    )
-    
-    return response.choices[0].message.content
+    try:
+        client = openai.OpenAI()
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=150
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        return f"⚠️ AI 解釋暫時無法使用：{str(e)}"
 
 # ========================================
 # Streamlit UI
